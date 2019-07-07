@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  
+  
+  <!-- targetRuntime="MyBatis3" MyBatis3Simple-->
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+  	
+  	
+  	<commentGenerator>
+  		<property name="suppressAllComments" value="true"/>
+  	</commentGenerator>
+  	<!-- 配置需要连接逆向的数据库 -->
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://192.168.159.132:3306/atcrowdfunding"
+        userId="root"
+        password="123456">
+    </jdbcConnection>
+
+	<!--  -->
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+
+	<!-- javaModelGenerator：javaModel?  javaBean -->
+    <javaModelGenerator targetPackage="com.atguigu.atcrowdfunding.bean" 
+    	targetProject="..\atcrowdfunding-bean\src\main\java">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+	<!-- sqlMapGenerator：sql映射,mapper.xml文件放在那里 -->
+    <sqlMapGenerator targetPackage="mybatis.mapper"  
+    	targetProject=".\src\main\resources">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+	<!-- javaClientGenerator：Dao接口放在哪里 -->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.atguigu.atcrowdfunding.mapper"  
+    	targetProject=".\src\main\java">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+    <table tableName="%"/>
+
+  </context>
+</generatorConfiguration>

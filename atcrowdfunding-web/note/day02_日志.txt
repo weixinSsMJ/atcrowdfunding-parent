@@ -1,0 +1,102 @@
+一、日志：
+	输出：System.out.println("111");没意义的占用空间时间
+	项目上线就不需要了。只需各别关键位置的输出；
+	
+日志框架：
+	log.write(String str){
+		if(log.enable == true){
+			System.out.println(str);
+		}
+	};
+	log.write("111-111");
+	log.write("111-111");
+	
+	快速关闭日志功能；	log.enable=false
+	
+	log.var();
+	log.write();
+	
+	//如果有日志框架===日志级别
+	log.debug();//没啥用的先用debug
+	log.info();//记录稍微重要的信息
+	log.error();//记录出现的错误
+	
+	//commons-logging-1.2.jar
+	JUL（java.util.logging），
+	JCL（Apacha Commons Logging），
+	Log4j，
+	Log4j2，
+	Logback、
+	SLF4j、
+	jboss-logging、
+	xxxxx
+	
+日志框架：
+	1）、v1:
+		log.write(String str){
+			if(log.enable == true){
+				System.out.println(str);
+			}
+	};
+	2）、v2:把日志输出到某个文件
+		log.write(String str,File file){
+			if(log.enable == true){
+				write(file)
+		}
+	3）、v3:把日志输出到数据库
+		log.write(String str,Url dbUrl){
+			if(log.enable == true){
+				write(dbUrl)
+		}
+		
+	JDBC：接口；设计了接口
+		Connection、Preparestament、ResultSet；
+		mysql-connector：这些都是jdbc的实现；
+		
+	日志设计好接口；
+		log.write();
+		
+		
+	SLF4j-logback(log4j\log4j2\....)
+	日志界的规范统一（JDBC）；SLF4j
+	
+	接口(slf4j)：HelloApi
+		a(String str);
+	
+		
+	自家的(logback)：HelloImpl
+		a(String str){
+			sout(str);
+		}
+		
+	别家的(haha-logging)：HelloHaha
+		a(String[] str){
+		
+		  sout(str);
+		}
+	适配器：helloAdapter implements HelloApi{
+		a(String str){
+			HelloHaha.a(new String[]{str});
+		}
+	}	
+		
+		
+	application{
+		HelloApi.a(hello);
+	}
+	
+	导入HelloApi、导入hello-adapter、  导入haha-logging
+	
+	slf4j+其他实现：slf4j+其他实现的适配包+其他实现
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

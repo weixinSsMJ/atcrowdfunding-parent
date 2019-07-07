@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+
+	<!-- 引入外部配置文件 -->
+	<context:property-placeholder location="classpath:db.properties"/>
+
+	<!-- 1、包扫描所有组件，除过web组件 -->
+	<context:component-scan base-package="com.atguigu">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<!-- <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/> -->
+	</context:component-scan>
+	
+	<!-- transfer、missing：jar包不存在或者没有下载来 -->
+	<!-- failed to read artifact：jar包没下载来 -->
+	<!-- 没下载完成的jar都会在后面多一个.lastUpdated后缀 -->
+	<!--  项目有!都是类路径发生了问题,我们就更新项目即可-->
+	
+	
+	
+	<!-- ClassNotFound：类没找到；
+		1）、jar包没导 
+		2）、jar导了，UserService；正常的类都能点开  location
+				点一个类，发现：invaild  LOC  header(Bad Signatrue)；
+				类下载的时候丢失字节；	
+				解决：手动找到这个类所在整个文件夹，删除并更新项目即可	
+	-->
+	
+	
+	<!--  -->
+	
+	
+	
+	
+	<!-- 2、数据源 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="url" value="${datasource.url}"></property>
+		<property name="driverClassName" value="${datasource.driverClass}"></property>
+		<property name="username" value="${datasource.username}"></property>
+		<property name="password" value="${datasource.password}"></property>
+	</bean>
+	
+	
+	
+</beans>

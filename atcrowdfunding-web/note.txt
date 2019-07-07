@@ -1,0 +1,19 @@
+1、三大框架整合
+	1）、web.xml怎么配？
+			1)、SpringMVC的前端控制器，来拦截所有请求（Servlet）
+			2)、配置Spring容器启动;（Listener）
+				spring-beans.xml(管理容器中的所有组件)
+				spring-mybatis.xml（spring-mybatis整合）
+			3)、Servlet、Filter、Listener
+				字符编码过滤器（Filter）
+				rest风格过滤器（Filter）
+				
+				
+				
+	2）、Spring的xml怎么配？
+	
+	
+	3）、SpringMVC怎么配？
+	4）、MyBatis怎么配？
+	5）、其他框架怎么配？
+	
